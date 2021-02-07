@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir clip
+mkdir audio
+mkdir bgm
+mkdir se
+mkdir capture
+mkdir backup
