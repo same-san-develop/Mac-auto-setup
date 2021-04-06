@@ -1,0 +1,64 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+# "caskroom/cask" は 廃止されたため、代わりに "homebrew/cask" を使用する
+tap "homebrew/cask"
+
+tap "homebrew/cask-versions"
+tap "homebrew/cask-fonts"
+
+brew "python@3.8"
+brew "doxygen"
+brew "git-flow-avh"
+brew "graphviz"
+brew "jq"
+brew "mysql"
+brew "nodebrew" # brew "mas" よりも上に書く必要がある（mas のインストール時に nodebrew が必要らしい）
+brew "plantuml"
+brew "putty"
+brew "pyenv"
+brew "mas"
+
+# CUI
+brew "php@7.4"
+brew "nodebrew"
+brew "awscli"
+brew "git"
+brew "svn"
+
+# GUI
+cask "atom"
+cask "firefox"
+cask "kinza" # バージョンがかなり古い
+cask "vivaldi"
+cask "microsoft-edge"
+cask "postman"
+cask "tableplus" # インストール時にパスワード要求される（入力するまで先に進めないため注意）
+cask "mamp"
+cask "zoomus" # 「zoom.usからダウンロードフォルダ内のファイルにアクセスしようとしています」 というダイアログが出るが、「許可しない」 でOK
+cask "scroll-reverser"
+cask "macdown" # インストール時にパスワード要求される（入力するまで先に進めないため注意）
+cask "adobe-creative-cloud"
+cask "fork"
+cask "github" # Github-Desktop # インストール時にパスワード要求される（入力するまで先に進めないため注意）
+cask "karabiner-elements"
+cask "diffmerge"
+
+# App Store 経由でインストール
+mas "Slack", id:803453959
+mas "CotEdior", id:1024640650
+mas "Bear", id:1091189122
+mas "Bitwarden パスワードマネージャー", id:1352778147
+mas "Xcode", id:497799835 # xcodeのダウンロードだけで1時間ほどかかるため注意
+mas "The Unarchiver", id:425424353
+mas "Display Menu", id:549083868
+mas "Microsoft Remote Desktop", id:1295203466
+
+# Docker一式
+brew "docker" # Docker本体
+cask "docker" # Docker for Mac つまりデスクトップアプリとしてのDocker
+brew "docker-compose"
+
+# フォント
+cask "font-source-han-code-jp" # 源ノ角ゴシック Code JP（Atom用）
+cask "font-source-han-sans" # 源ノ角ゴシック
