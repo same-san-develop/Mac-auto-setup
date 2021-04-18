@@ -1,9 +1,32 @@
 #!/bin/bash
 
-mkdir clip
-mkdir audio
-mkdir bgm
-mkdir se
-mkdir capture
-mkdir backup
-mkdir thumbnail
+readonly DL_PATH=https://raw.githubusercontent.com/same-js/Mac-auto-setup/main/Hobby/Commands/PremierePro/mkmovie
+readonly SAVE_PATH="~/bin/mkmovie"
+readonly SUCCESS_FORMAT='\033[32m%s\033[m\n'
+readonly ERROR_FORMAT='\033[31m%s\033[m\n'
+
+# upgrade が引数にある場合、コマンドを最新にする
+if [ "$1" = "upgrade" ];
+then
+  response=$(curl --silent --fail -w "%{http_code}" $DL_PATH)
+  http_code=$(tail -n1 <<< "$response")
+  content=$(sed '$ d' <<< "$response")
+  
+  if [ "$http_code" = '200' ]; then
+    echo "$content" > ~/bin/mkmovie
+    printf $SUCCESS_FORMAT "mkmovie commands upgrade Completed."
+  else
+    printf $ERROR_FORMAT "mkmovie commands upgrade failed. http_code=[${http_code}]"
+  fi
+
+# 引数が与えられていない場合、現在のディレクトリに PremierePro用ディレクトリ一式を作成する
+elif ["$1" = ""];
+then
+  mkdir clip
+  mkdir audio
+  mkdir bgm
+  mkdir se
+  mkdir capture
+  mkdir backup
+  mkdir thumbnail
+fi
